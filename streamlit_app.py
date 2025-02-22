@@ -8,7 +8,7 @@ st.set_page_config(page_title="Important Questions", page_icon="📚", layout="w
 st.title("📚 Important Questions")
 st.write(
     """
-    Welcome to the **Important Questions** app! Share and discover questions from past exams to identify patterns 
+    Welcome to the *Important Questions* app! Share and discover questions from past exams to identify patterns 
     and prepare better for upcoming exams. Add questions you encountered, and the app will automatically predict 
     how many times they have appeared in past papers.
     """
@@ -122,7 +122,6 @@ with st.sidebar:
         subject = st.selectbox("Subject", sorted(subjects))
         question = st.text_area("Enter the question")
         marks = st.selectbox("Marks", [2.5, 5, 10])
-        frequency = st.number_input("Number of times this question appeared", min_value=1, value=1)
         years_appeared = st.multiselect("Years the question appeared", options=range(2018, 2024), default=[2023])
         submitted = st.form_submit_button("Submit Question")
 
@@ -144,8 +143,7 @@ with st.sidebar:
             ]
         )
 
-        st.success("Question submitted successfully! Here are the details:")
-        st.dataframe(df_new, use_container_width=True, hide_index=True)
+        st.success("Question submitted successfully!")
         # Concatenate and sort the dataframe
         st.session_state.df = pd.concat([df_new, st.session_state.df], axis=0)
         st.session_state.df = st.session_state.df.sort_values(by=['Subject', 'Frequency'], ascending=[True, False])
@@ -233,14 +231,14 @@ years_to_predict = st.selectbox("Select time period for prediction", [5, 10, 15]
 if question_to_predict:
     # Predict appearances
     appearances = predict_appearances(question_to_predict, years_to_predict)
-    st.write(f"The question *'{question_to_predict}'* has appeared *{appearances} times* in the past *{years_to_predict} years*.")
+    st.write(f"The question '{question_to_predict}' has appeared {appearances} times in the past {years_to_predict} years.")
 
 # Footer
 st.markdown("---")
 st.markdown(
     """
     <div style="text-align: center;">
-        <p>📧 Contact us: <a href="mailto:affan@siddiqui.com">affan@siddiqui.com</a></p>
+        <p>📧 Contact us: <a href="mailto:support@importantquestions.com">support@importantquestions.com</a></p>
         <p>Follow us:</p>
         <p>
             <a href="https://facebook.com" target="_blank">
@@ -253,7 +251,7 @@ st.markdown(
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" width="30">
             </a>
         </p>
-        <p>© 2023 Important Questions by Ctrl+Alt+Defeat. All rights reserved.</p>
+        <p>© 2023 Important Questions. All rights reserved.</p>
     </div>
     """,
     unsafe_allow_html=True
