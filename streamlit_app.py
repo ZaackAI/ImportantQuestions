@@ -238,7 +238,7 @@ st.markdown("---")
 st.markdown(
     """
     <div style="text-align: center;">
-        <p>📧 Contact us: <a href="mailto:support@importantquestions.com">support@importantquestions.com</a></p>
+        <p>📧 Contact us: <a href="mailto:support@importantquestions.com">ctrlalt@defeat.com</a></p>
         <p>Follow us:</p>
         <p>
             <a href="https://facebook.com" target="_blank">
@@ -251,7 +251,7 @@ st.markdown(
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" width="30">
             </a>
         </p>
-        <p>© 2023 Important Questions. All rights reserved.</p>
+        <p>© 2025 Important Questions by Ctrl+Alt+Defeat. All rights reserved.</p>
     </div>
     """,
     unsafe_allow_html=True
